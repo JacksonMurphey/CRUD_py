@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Edit Pets{% endblock %}
+{% block content %}
+
+<h2>Edit Pet: {{pet.name}} -- Type: {{pet.type}} <a href="/pets" class="btn btn-primary"> Pet Home</a></h2>
+<form action="/pets/{{pet.id}}/update" method="POST">
+    <label for="name">First Name:</label>
+    <input type="text" name="name" id="" value="{{pet.name}}">
+    <label for="type">Type:(dog or cat)</label>
+    <input type="text" name="type" id="" value="{{pet.type}}">
+    Confirm your User:
+    <select name="user_id" id="">
+        {% for user in users %}
+        <option value="{{user_id}}">{{user.first_name}} {{user.last_name}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" name="" id="" value="Update Pet" class="btn btn-primary">
+</form>
+<a href="/pets/{{pet.id}}" class="btn btn-primary">Show Pet Info</a>
+
+
+{% endblock %}

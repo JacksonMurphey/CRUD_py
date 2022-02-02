@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Edit Users{% endblock %}
+{% block content %}
+
+<h2>Edit User: {{user.first_name}} {{user.last_name}} <a href="/users" class="btn btn-primary"> User Home</a></h2>
+<form action="/users/{{user.id}}/update" method="POST">
+    <label for="first_name">First Name:</label>
+    <input type="text" name="first_name" id="" value="{{user.first_name}}">
+    <label for="last_name">Last Name:</label>
+    <input type="text" name="last_name" id="" value="{{user.last_name}}">
+    <label for="email">Email:</label>
+    <input type="text" name="email" id="" value="{{user.email}}">
+    <input type="submit" name="" id="" value="Update User" class="btn btn-primary">
+</form>
+<a href="/users/{{user.id}}">Show User Info</a>
+
+
+{% endblock %}

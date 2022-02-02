@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title%}Pets Dashboard{% endblock %}
+{% block content %}
+
+<h2>Here are our Pets!</h2>
+<table class="table table-hover">
+    <thead>
+
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Type</th>
+        <!-- will need to update Owner ID to show the User.first/last_name -->
+        <th scope="col">Owner ID</th>
+        <th scope="col">Created At</th>
+        <th scope="col">Actions</th>
+
+    </thead>
+    <tbody>
+        {% for pet in pets %}
+        <tr>
+            <td>{{pet.id}}</td>
+            <td>{{pet.name}}</td>
+            <td>{{pet.type}}</td>
+            <!-- need to create a route  -->
+            <td><a href="/users/{{pet.user_id}}">{{pet.user_id}}</a></td>
+            <td>{{pet.created_at}}</td>
+
+            <td><a href="/pets/{{pet.id}}">Show | </a><a href="/pets/{{pet.id}}/edit">Edit | </a><a href="">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="/pets/new" class="btn btn-primary">Add a New Pet</a>
+<a href="/users" class="btn btn-secondary">Users Dashboard</a>
+
+
+
+
+{% endblock %}

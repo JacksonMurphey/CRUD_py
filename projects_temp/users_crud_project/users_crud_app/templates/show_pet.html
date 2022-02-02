@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Show Pet{% endblock %}
+{% block content %}
+
+<h2>Pet: {{pet.id}} <a href="/pets" class="btn btn-primary">Pet Home</a></h2>
+<div class="container">
+    <p>Full Name: {{pet.name}}</p>
+    <p>Pet Type: {{pet.type}}</p>
+    <p>Pet's User: {{pet.user.first_name}} {{pet.user.last_name}}</p>
+    <p>Created at: {{pet.created_at}}</p>
+    <p>Last Updated On: {{pet.updated_at}}</p>
+    <a href="/pets/{{pet.id}}/edit">Edit | </a><a href="">Delete</a>
+</div>
+
+
+{% endblock %}

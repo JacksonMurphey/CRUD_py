@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Show User{% endblock %}
+{% block content %}
+
+<h2>User {{user.id}} <a href="/users">Home</a></h2>
+<div class="container">
+    <p>Full Name: {{user.first_name}} {{user.last_name}}</p>
+    <p>Email: {{user.email}}</p>
+    <p>Pet: user.pet.name / user.pet.type</p>
+    <p>Created at: {{user.created_at}}</p>
+    <p>Last Updated On: {{user.updated_at}}</p>
+    <a href="/users/{{user.id}}/edit">Edit | </a><a href="/users/{{user.id}}/destroy">Delete</a>
+</div>
+
+
+{% endblock %}
